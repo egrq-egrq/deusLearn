@@ -1,0 +1,11 @@
+services:
+  mynginx:
+    container_name: mynginx
+    build: ./nginx
+    restart: unless-stopped
+    user: "nginx"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/html/index.html:/usr/share/nginx/html/index.html
